@@ -54,7 +54,18 @@ AppVeyor is a program that every time a commit is done to the code, it automatic
 - To begin with, we will need to create an account on AppVeyor using our GitHub account.
 - Then, we will need to authorize it. If the GitHub repository to apply it is from an organization, it will require the authorization of the organization's owner. So it’s recommended to be done by the owner himself.
 ![](Docs/Images/captura1.png)
-Once we have synchronized both applications, we can go on with AppVeyor creating a new project and selecting the GitHub repository which we want to have automated builds.
-Now we have our project in AppVeyor, by default every time we make a commit, it will try to make a built, but it probably fails due to the app configuration is not the correct. So the next step is how to configure it.
+- Once we have synchronized both applications, we can go on with AppVeyor creating a new project and selecting the GitHub repository which we want to have automated builds.
+- Now we have our project in AppVeyor, by default every time we make a commit, it will try to make a built, but it probably fails due to the app configuration is not the correct. So the next step is how to configure it.
+
+## Configuration
+- First of all you need to know that there are two ways to configure an AppVeyor project. The first one it is found in the project itself, in the Settings section.
+
+![](Docs/Images/captura2.png)
+- The second one is creating in your Github repository a YAML file named appveyor.yml where is found the same configuration but in YAML format.
+![](Docs/Images/captura3.png)
+- AppVeyor will give preference to the YAML file before the project settings. So be careful.
+- The project settings is divided in different sections, the main one is General. There, the most relevant option is that you can configure the Build version format, that will increase every time a built is done (regardless of if it fails). Another useful setting is that you can select from which branch you want to make the built every time a commit is done, in Default branch and Branches to build.
+![](Docs/Images/captura4.png)
+
 
 
