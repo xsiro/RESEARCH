@@ -50,6 +50,9 @@ AppVeyor is a program that every time a commit is done to the code, it automatic
 
 ## Tutorial
 
+- [OFFICIAL TUTORIAL](https://youtu.be/e1rVM4_nzWw)
+- [CONFIGURATION](https://www.appveyor.com/docs/build-configuration/)
+
 ### Starting
 - To begin with, we will need to create an account on AppVeyor using our GitHub account.
 - Then, we will need to authorize it. If the GitHub repository to apply it is from an organization, it will require the authorization of the organization's owner. So it’s recommended to be done by the owner himself.
@@ -73,27 +76,47 @@ AppVeyor is a program that every time a commit is done to the code, it automatic
 
 - The next important setting is found in Environment where you have to select which Visual Studio version are you using.
 
-![]Docs/Images/Captura5.PNG)
+![](Docs/Images/Captura5.PNG)
 
 - Another option is that one that uploads the build done to our GitHub releases page. It is found in Deployment and is need to change the deployment provider to GitHub Releases. It is recommended to add a Release description and mark the Draft Release to avoid having all the releases you made there. But before all of that is needed an authentication from GitHub to let AppVeyor modify our repository. It is done through a GitHub authentication token.
 
-![]Docs/Images/Captura6.PNG)
+![](Docs/Images/Captura6.PNG)
 
-![]Docs/Images/Captura7.PNG)
+![](Docs/Images/Captura7.PNG)
 
 ## How to get GitHub authentication token
 
 - Token is like a password, so manage them like that. The difference is that it is used for scripts or commands, and in addition you can revoke them and generate lots of them. So, to generate one of them you need to go Here or manually going to your GitHub, and go to Settings (the general settings, not the repository ones). There is a section Developer Settings with a subsection Personal Access Tokens.
 
-![]Docs/Images/Captura8.PNG)
+![](Docs/Images/Captura8.PNG)
 
 - There you need to Generate a new token and just select the scope public_repo and then Generate it.
 
-![]Docs/Images/Captura9.PNG)
+![](Docs/Images/Captura9.PNG)
 
 - Once done the token has to be copied to encrypt it, the result is an encrypted token that has to be copied to the GitHub authentication token in the Deployment setting that we were talking before.
 
-![]Docs/Images/Captura.PNG)
+![](Docs/Images/Captura.PNG)
+
+## Return to AppVeyor
+- At this point AppVeyor is capable to access to the Release GitHub page.
+- So we need to upload this Game folder together with the executable of the game, that will be given by AppVeyor once it has made the Release. To do it we need to go again to the project Settings. Firstly we need to go to Build section and fill the Configuration option with Debug and Release. We put both, to check that there’s no problem compiling the code in Debug nor Release mode. Then, as we said before, we need to get the executable given after the AppVeyor does the Release to our code. So in Before packaging script we need to insert a script in PS (PowerShell) language which will copy this executable to the Game folder, to have it all together.
+
+### The script is the following:
+Copy-Item C:\projects\(your_project_name)\$env:CONFIGURATION\(your_solution_name).exe C:\projects\(your_project_name)\Game\.
+
+![](Docs/Images/Captura10.PNG)
+
+- So now, after it is done the Release to our code, the folder Game will contain all that a correct built needs. So the last step is to upload this folder to our GitHub Release page. It is configured in the section Artifacts where we need to put the path to the folder Game, with a name for the release and selected the Web Deploy Package type.
+
+![](Docs/Images/Captura11.PNG)
+
+Finally we have an option to turn on the notifications.
+
+![](Docs/Images/Captura12.PNG)
+
+
+
 
 
 
