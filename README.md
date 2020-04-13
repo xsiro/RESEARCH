@@ -61,11 +61,40 @@ AppVeyor is a program that every time a commit is done to the code, it automatic
 - First of all you need to know that there are two ways to configure an AppVeyor project. The first one it is found in the project itself, in the Settings section.
 
 ![](Docs/Images/captura2.png)
+
 - The second one is creating in your Github repository a YAML file named appveyor.yml where is found the same configuration but in YAML format.
-![](Docs/Images/captura3.png)
+
+![](Docs/Images/Captura3.PNG)
+
 - AppVeyor will give preference to the YAML file before the project settings. So be careful.
 - The project settings is divided in different sections, the main one is General. There, the most relevant option is that you can configure the Build version format, that will increase every time a built is done (regardless of if it fails). Another useful setting is that you can select from which branch you want to make the built every time a commit is done, in Default branch and Branches to build.
-![](Docs/Images/captura4.png)
+
+![](Docs/Images/Captura4.PNG)
+
+- The next important setting is found in Environment where you have to select which Visual Studio version are you using.
+
+![]Docs/Images/Captura5.PNG)
+
+- Another option is that one that uploads the build done to our GitHub releases page. It is found in Deployment and is need to change the deployment provider to GitHub Releases. It is recommended to add a Release description and mark the Draft Release to avoid having all the releases you made there. But before all of that is needed an authentication from GitHub to let AppVeyor modify our repository. It is done through a GitHub authentication token.
+
+![]Docs/Images/Captura6.PNG)
+
+![]Docs/Images/Captura7.PNG)
+
+## How to get GitHub authentication token
+
+- Token is like a password, so manage them like that. The difference is that it is used for scripts or commands, and in addition you can revoke them and generate lots of them. So, to generate one of them you need to go Here or manually going to your GitHub, and go to Settings (the general settings, not the repository ones). There is a section Developer Settings with a subsection Personal Access Tokens.
+
+![]Docs/Images/Captura8.PNG)
+
+- There you need to Generate a new token and just select the scope public_repo and then Generate it.
+
+![]Docs/Images/Captura9.PNG)
+
+- Once done the token has to be copied to encrypt it, the result is an encrypted token that has to be copied to the GitHub authentication token in the Deployment setting that we were talking before.
+
+![]Docs/Images/Captura.PNG)
+
 
 
 
