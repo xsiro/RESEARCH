@@ -94,7 +94,7 @@ AppVeyor is a program that every time a commit is done to the code, it automatic
 
 ![](Docs/Images/Captura9.PNG)
 
-- Once done the token has to be copied to encrypt it, the result is an encrypted token that has to be copied to the GitHub authentication token in the Deployment setting that we were talking before.
+- Once done the token has to be copied in this [Link](https://ci.appveyor.com/tools/encrypt) to encrypt it, the result is an encrypted token that has to be copied to the GitHub authentication token in the Deployment setting that we were talking before.
 
 ![](Docs/Images/Captura.PNG)
 
