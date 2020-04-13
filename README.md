@@ -86,7 +86,7 @@ AppVeyor is a program that every time a commit is done to the code, it automatic
 
 ## How to get GitHub authentication token
 
-- Token is like a password, so manage them like that. The difference is that it is used for scripts or commands, and in addition you can revoke them and generate lots of them. So, to generate one of them you need to go Here or manually going to your GitHub, and go to Settings (the general settings, not the repository ones). There is a section Developer Settings with a subsection Personal Access Tokens.
+- Token is like a password, so manage them like that. The difference is that it is used for scripts or commands, and in addition you can revoke them and generate lots of them. So, to generate one of them you need to go to this [Link](https://ci.appveyor.com/tools/encrypt) or manually going to your GitHub, and go to Settings (the general settings, not the repository ones). There is a section Developer Settings with a subsection Personal Access Tokens.
 
 ![](Docs/Images/Captura8.PNG)
 
